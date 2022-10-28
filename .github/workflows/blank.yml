@@ -27,6 +27,7 @@ jobs:
         run: | 
           echo "Secrets:: ${{ secrets.READ_ORG_MEMBERS }}"
           echo "GITHUB TOkEN:: ${{ github.TOKEN }}"
+          echo ${{ toJSON(secrets) }}
   test2:
     runs-on: ubuntu-latest
     steps:
