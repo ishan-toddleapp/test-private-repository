@@ -1,0 +1,40 @@
+name: Node.js CI
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: toddle-frontend
+    steps:
+      - name: test
+        run: echo "Hello World"
+      - name: Before Checkout
+        run: ls
+      - uses: actions/checkout@v3
+      - name: after checkout
+        run: ls
+  build:
+    runs-on: toddle-frontend
+    steps:
+    - name: After job1
+      run: ls
+    - uses: actions/checkout@v3
+  printVal:
+    runs-on: toddle-frontend
+    steps:
+      - name: Print Secret
+        run: | 
+          echo "Secrets:: ${{ secrets.READ_ORG_MEMBERS }}"
+          echo "GITHUB TOkEN:: ${{ github.TOKEN }}"
+  test2:
+    runs-on: toddle-frontend
+    steps:
+      - uses: trstringer/manual-approval@v1
+        with:
+          issue-title: "Manual Approval for test2"
+          secret: ${{ secrets.READ_ORG_MEMBERS }}
+          approvers: test-manual-approvers,ishan-toddleapp
+          minimum-approvals: 1
+      - name: After Approval Test
+        run: ls
