@@ -35,7 +35,6 @@ jobs:
         with:
           issue-title: "Manual Approval for test2"
           secret: ${{ secrets.READ_ORG_MEMBERS }}
-          approvers: test-manual-approvers,ishan-toddleapp
           minimum-approvals: 1
       - name: After Approval Test
         run: ls
