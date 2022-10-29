@@ -1,3 +1,3 @@
 # test-private-repository
 
-after making repo public test
+after making repo public test.
